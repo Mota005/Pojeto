@@ -1,31 +1,29 @@
 <template>
-  <div class="app-container">
-    <header>
-      <h1>🎈 Magia e Balões</h1>
-      <p>Animação Infantil para Festas Inesquecíveis</p>
-    </header>
-
-    <main>
-      <p>O site está a ser construído aqui!</p>
-    </main>
+  <div id="app">
+    <Navbar />
+    
+    <Hero />
   </div>
 </template>
 
 <script setup>
-// O código JavaScript vai ficar aqui mais tarde
+// Importamos os dois componentes que já criaste
+import Navbar from './components/Navbar.vue'
+import Hero from './components/Hero.vue'
 </script>
 
-<style scoped>
-/* Um estilo temporário só para veres a funcionar */
-.app-container {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px;
-  background-color: #fffbeb;
-  min-height: 100vh;
+<style>
+/* Estilos globais (podes manter os que já tens) */
+:root {
+  --cor-lilas-principal: #d6e4ff;
+  --cor-texto-escuro: #2c3e50;
+  --cor-texto-suave: #7f8c8d;
 }
-h1 {
-  color: #ff6b6b;
-  font-size: 3rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Ou a fonte que escolheste */
 }
 </style>
