@@ -5,12 +5,7 @@
     <div class="magic-orb orb-2"></div>
     <div class="magic-orb orb-3"></div>
 
-    <!-- EFEITO 2: Brilhos sutis (Pirilampos) -->
-    <div class="magic-sparkle sparkle-1"></div>
-    <div class="magic-sparkle sparkle-2"></div>
-    <div class="magic-sparkle sparkle-3"></div>
-    <div class="magic-sparkle sparkle-4"></div>
-
+  
     <!-- EFEITO 3: Formas geométricas abstratas flutuantes (Textura) -->
     <div class="floating-shape shape-plus-1">+</div>
     <div class="floating-shape shape-plus-2">+</div>
