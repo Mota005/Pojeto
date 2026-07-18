@@ -3,13 +3,15 @@
     <Navbar />
     
     <Hero />
+
+    <Sobre/>
   </div>
 </template>
 
 <script setup>
-// Importamos os dois componentes que já criaste
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
+import Sobre from './components/Sobre.vue' // 1. Importa a nova secção
 </script>
 
 <style>
