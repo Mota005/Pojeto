@@ -23,7 +23,7 @@ const toggleFlip = (index) => {
       <div class="servicos-content-top">
         <span class="servicos-badge">O que Oferecemos</span>
         <h2 class="servicos-title">Os Sonhos Que Tornamos Realidade</h2>       
-        <p class="servicos-instruction">Clica nas cartas para descobrir a magia ✨</p>
+        <p class="servicos-instruction">Clica nas cartas para descobrir a magia </p>
       </div>
       
       <!-- Grelha das Cartas em 3D -->
@@ -38,12 +38,12 @@ const toggleFlip = (index) => {
                 <div class="card-img-overlay"></div>
               </div>
               <div class="card-front-info">
-                <span class="card-icon">🎉</span>
+                <span class="card-icon"></span>
                 <h3>Animação Infantil</h3>
               </div>
             </div>
             <div class="flip-card-back">
-              <span class="card-icon-back">🎉</span>
+              <span class="card-icon-back"></span>
               <h3>Animação Infantil</h3>
               <p>Modelagem de balões, pinturas faciais profissionais, jogos dinâmicos e muita música para pôr todos a dançar.</p>
               <span class="btn-voltar">Fechar ↩</span>
@@ -60,12 +60,12 @@ const toggleFlip = (index) => {
                 <div class="card-img-overlay"></div>
               </div>
               <div class="card-front-info">
-                <span class="card-icon">🏰</span>
+                <span class="card-icon"></span>
                 <h3>Eventos Estilizados</h3>
               </div>
             </div>
             <div class="flip-card-back">
-              <span class="card-icon-back">🏰</span>
+              <span class="card-icon-back"></span>
               <h3>Eventos Estilizados</h3>
               <p>Decoração temática completa, planeamento personalizado e festas com personagens vivas saídas dos contos de fadas.</p>
               <span class="btn-voltar">Fechar ↩</span>
@@ -82,12 +82,12 @@ const toggleFlip = (index) => {
                 <div class="card-img-overlay"></div>
               </div>
               <div class="card-front-info">
-                <span class="card-icon">🎨</span>
+                <span class="card-icon"></span>
                 <h3>Oficinas Criativas</h3>
               </div>
             </div>
             <div class="flip-card-back">
-              <span class="card-icon-back">🎨</span>
+              <span class="card-icon-back"></span>
               <h3>Oficinas Criativas</h3>
               <p>Atividades manuais e artísticas onde os mais pequenos dão asas à imaginação e criam as suas próprias recordações.</p>
               <span class="btn-voltar">Fechar ↩</span>

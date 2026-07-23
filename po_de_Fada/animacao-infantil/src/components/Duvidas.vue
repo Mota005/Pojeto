@@ -1,15 +1,14 @@
 <script setup>
 import { ref } from 'vue'
 
-// O CONTROLO DA ABERTURA: Guarda o número da pergunta que está aberta (null = todas fechadas)
+// O CONTROLO DA ABERTURA: Guarda o número da pergunta aberta (null = todas fechadas)
 const openIndex = ref(null)
 
 const toggleDuvida = (index) => {
-  // Se clicarmos na que já está aberta, ela fecha (volta a null). Se não, abre a nova.
   openIndex.value = openIndex.value === index ? null : index
 }
 
-/* ─── ENTRADA DE DADOS: ADICIONA AQUI AS TUAS PERGUNTAS NO FUTURO ─── */
+/* ─── LISTA DE DÚVIDAS ─── */
 const listaDuvidas = ref([
   {
     pergunta: 'Com que antecedência devo reservar a festa?',
@@ -33,10 +32,10 @@ const listaDuvidas = ref([
 <template>
   <section id="duvidas" class="duvidas-section">
     
-    <!-- Onda no topo para cortar o fundo lilás da secção anterior -->
+    <!-- ONDA DE TRANSIÇÃO (Corta o fundo lilás dos Serviços) -->
     <div class="wave-top-duvidas">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,0L60,10.7C120,21,240,43,360,48C480,53,600,43,720,37.3C840,32,960,32,1080,42.7C1200,53,1320,75,1380,85.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" fill="#ffffff"/>
+        <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,64C840,53,960,43,1080,48C1200,53,1320,75,1380,85.3L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#ffffff"/>
       </svg>
     </div>
 
@@ -92,33 +91,33 @@ const listaDuvidas = ref([
 <style scoped>
 .duvidas-section {
   background-color: #ffffff; /* Fundo branco limpo */
-  padding: 140px 24px 100px 24px;
+  padding: 100px 24px 100px 24px;
   position: relative;
+  z-index: 5;
 }
 
-/* ONDA DO TOPO */
+/* ─── ONDA NO TOPO PERFEITAMENTE ALINHADA ─── */
 .wave-top-duvidas {
   position: absolute;
-  top: -1px;
+  top: -95px; /* Sobe o SVG para morder o fundo dos Serviços */
   left: 0;
   width: 100%;
   line-height: 0;
-  z-index: 5;
-  transform: rotate(180deg); /* Inverte o corte para morder os Serviços */
+  z-index: 6;
 }
 
 .wave-top-duvidas svg {
   width: 100%;
-  height: 90px;
+  height: 96px;
   display: block;
 }
 
-/* CONTAINER PRINCIPAL */
+/* ─── CONTAINER PRINCIPAL ─── */
 .duvidas-container {
-  max-width: 800px; /* Mais estreito para o texto não ficar muito disperso */
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 6;
+  z-index: 7;
 }
 
 .duvidas-header {
@@ -134,6 +133,8 @@ const listaDuvidas = ref([
   border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
@@ -159,7 +160,7 @@ const listaDuvidas = ref([
 }
 
 .accordion-item {
-  background-color: #faf6ff; /* Fundo suave lilás */
+  background-color: #faf6ff;
   border-radius: 18px;
   border: 1px solid rgba(168, 127, 255, 0.08);
   overflow: hidden;
@@ -198,7 +199,7 @@ const listaDuvidas = ref([
   background-color: #f6eeff;
 }
 
-/* ESTADO ABERTO (Ativado pelo Vue) */
+/* ESTADO ABERTO */
 .accordion-item.is-open {
   background-color: #ffffff;
   border-color: #e8dbff;
@@ -206,37 +207,37 @@ const listaDuvidas = ref([
 }
 
 .accordion-item.is-open .question-text {
-  color: #a87fff; /* Pergunta ganha destaque de cor */
+  color: #a87fff;
 }
 
 .accordion-item.is-open .arrow-icon {
-  transform: rotate(180deg) scale(1.2); /* A varinha/estrela gira */
+  transform: rotate(180deg) scale(1.2);
 }
 
-/* TRUQUE CSS ULTRA SUAVE PARA ANIMAR ALTURA AUTOMÁTICA */
+/* TRUQUE DA ANIMAÇÃO DE ALTURA (CSS GRID) */
 .accordion-content {
   display: grid;
-  grid-template-rows: 0fr; /* Altura 0 por padrão */
+  grid-template-rows: 0fr;
   transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-item.is-open .accordion-content {
-  grid-template-rows: 1fr; /* Expande para o tamanho real do texto */
+  grid-template-rows: 1fr;
 }
 
 .accordion-content-inner {
-  overflow: hidden; /* Corta o texto quando fechado */
+  overflow: hidden;
 }
 
 .accordion-content-inner p {
-  padding: 0 28px 24px 28px; /* Margem interna do texto */
+  padding: 0 28px 24px 28px;
   font-size: 1rem;
   color: #606f7b;
   line-height: 1.6;
   margin: 0;
 }
 
-/* ─── BLOCO DE CONTACTO FINAL (CTA) ─── */
+/* BLOCO DE CONTACTO FINAL (CTA) */
 .duvidas-footer-cta {
   margin-top: 50px;
 }
@@ -286,12 +287,10 @@ const listaDuvidas = ref([
 /* RESPONSIVIDADE (MOBILE) */
 @media (max-width: 768px) {
   .duvidas-title { font-size: 2.2rem; }
-  .cta-box {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
+  .cta-box { flex-direction: column; text-align: center; padding: 30px 20px; }
   .btn-cta-contacto { width: 100%; text-align: center; }
   .question-text { font-size: 1rem; }
+  .wave-top-duvidas { top: -49px; }
+  .wave-top-duvidas svg { height: 50px; }
 }
 </style>
